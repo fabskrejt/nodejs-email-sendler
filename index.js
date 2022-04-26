@@ -6,7 +6,7 @@ app.use(cors())
 app.use(require('express').json())
 
 const host = 'localhost'
-const port = 3010
+const port = process.env.PORT || 3010
 
 app.use((req, res, next) => {
   res.status(404).type('text/plain')
