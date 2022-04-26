@@ -13,7 +13,7 @@ app.use((req, res, next) => {
   res.send('Not found')
 })
 
-app.listen(port, host, function () {
+app.listen(port, function () {
   console.log(`Server listens http://${host}:${port}`)
 })
 const nodemailer = require('nodemailer')
@@ -46,3 +46,8 @@ app.post('/sendmsg',async (req, res) => {
         res.send('Message send')
       })
       
+      app.get('/',async (req, res) => {
+        
+              res.status(200).type('text/plain')
+              res.send('Hi, I work!')
+            })
