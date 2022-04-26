@@ -8,10 +8,7 @@ app.use(require('express').json())
 const host = 'localhost'
 const port = process.env.PORT || 3010
 
-app.use((req, res, next) => {
-  res.status(404).type('text/plain')
-  res.send('Not found')
-})
+
 
 app.listen(port, function () {
   console.log(`Server listens http://${host}:${port}`)
@@ -50,4 +47,9 @@ app.post('/sendmsg',async (req, res) => {
         
               res.status(200).type('text/plain')
               res.send('Hi, I work!')
+            })
+
+            app.use((req, res, next) => {
+              res.status(404).type('text/plain')
+              res.send('Not found')
             })
